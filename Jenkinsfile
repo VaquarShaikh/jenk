@@ -21,7 +21,7 @@ pipeline {
 
         stage('Run test') {
             steps {
-                sh 'npm run e2e'
+                sh 'npm run e2e:headless'
             }
         }
     }
