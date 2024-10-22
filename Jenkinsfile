@@ -21,7 +21,7 @@ pipeline {
 
         stage('Run test') {
             steps {
-                sh 'npm run start'
+                sh 'npm run e2e'
             }
         }
     }
