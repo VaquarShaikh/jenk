@@ -13,7 +13,7 @@ pipeline {
             }
         }
 
-        stage('Build nextjs') {
+        stage('code compile') {
             steps {
                 sh 'npm run build'
             }
@@ -22,6 +22,18 @@ pipeline {
         stage('Run test') {
             steps {
                 sh 'npm run e2e:headless'
+            }
+        }
+
+        stage('sonarqube') {
+            steps {
+                withSonarQubeEnv('vaqsonar') {
+                    sh 'sonar-scanner \
+                        -Dsonar.projectKey=jenk \
+                        -Dsonar.sources=. \
+                        -Dsonar.host.url=http://localhost:9000 \
+                        -Dsonar.login=sqa_86bdff8efcf3bd343c4f0fb9aca283762c8ab6a7'
+                }
             }
         }
     }
