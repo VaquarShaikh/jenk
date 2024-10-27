@@ -25,14 +25,11 @@ pipeline {
             }
         }
 
-        stage('sonarqube') {
+        stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('vaqsonar') {
-                    sh 'sonar-scanner \
-                        -Dsonar.projectKey=jenk \
-                        -Dsonar.sources=. \
-                        -Dsonar.host.url=http://localhost:9000 \
-                        -Dsonar.login=sqa_86bdff8efcf3bd343c4f0fb9aca283762c8ab6a7'
+                // Run SonarQube analysis within SonarQube environment
+                withSonarQubeEnv('MySonarQube') {
+                    sh "${SCANNER_HOME}/bin/sonar-scanner"
                 }
             }
         }
