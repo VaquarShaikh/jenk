@@ -32,17 +32,22 @@ pipeline {
             steps {
                 withSonarQubeEnv('Sonarserver') {
                     sh "${scannerHome}/bin/sonar-scanner"
-                  }
-                if ("${json.projectStatus.status}" == "ERROR") {
-                            currentBuild.result = 'FAILURE'
-                            error('Pipeline aborted due to quality gate failure.')
+                }
+
+                script {
+                    // Quality gate check (post-analysis)
+                    def qualityGate = waitForQualityGate()
+                    if (qualityGate.status != 'OK') {
+                        currentBuild.result = 'FAILURE'
+                        error('Pipeline aborted due to quality gate failure.')
                     }
+                }
+            }
         }
     }
-
-// post {
-//     always {
-//         cleanWs()
-//     }
-// }
+    post {
+        always {
+            cleanWs()
+        }
+    }
 }
