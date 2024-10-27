@@ -29,7 +29,7 @@ pipeline {
             steps {
                 // Run SonarQube analysis within SonarQube environment
                 withSonarQubeEnv('MySonarQube') {
-                    sh "${SCANNER_HOME}/bin/sonar-scanner"
+                    sh "sonar-scanner"
                 }
             }
         }
