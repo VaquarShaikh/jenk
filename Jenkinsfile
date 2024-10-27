@@ -26,12 +26,17 @@ pipeline {
         }
 
         stage('SonarQube Analysis') {
-            steps {
-                // Run SonarQube analysis within SonarQube environment
-                withSonarQubeEnv('MySonarQube') {
-                    sh "sonar-scanner"
-                }
+            environment {
+                scannerHome = tool 'Sonar scanner'
             }
+            steps {
+                withSonarQubeEnv('Sonarserver') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                  }
+                if ("${json.projectStatus.status}" == "ERROR") {
+                            currentBuild.result = 'FAILURE'
+                            error('Pipeline aborted due to quality gate failure.')
+                    }
         }
     }
 
