@@ -9,7 +9,7 @@ pipeline {
 
         stage('install dependencies') {
             steps {
-                sh 'npm install'
+                sh '/home/vaq/.nvm/versions/node/v22.11.0/bin/npm install'
             }
         }
 
