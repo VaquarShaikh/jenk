@@ -26,7 +26,9 @@ pipeline {
         }
 
         stage('SonarQube Analysis') {
-            echo('sonarqube')
+            steps{
+               echo('sonarqube')
+            }
         }
     }
     post {
