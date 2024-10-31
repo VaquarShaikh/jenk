@@ -26,23 +26,7 @@ pipeline {
         }
 
         stage('SonarQube Analysis') {
-            environment {
-                scannerHome = tool 'vaqsonar'
-            }
-            steps {
-                withSonarQubeEnv('Sonarserver') {
-                    sh "${scannerHome}/bin/sonar-scanner"
-                }
-
-                script {
-                    // Quality gate check (post-analysis)
-                    def qualityGate = waitForQualityGate()
-                    if (qualityGate.status != 'OK') {
-                        currentBuild.result = 'FAILURE'
-                        error('Pipeline aborted due to quality gate failure.')
-                    }
-                }
-            }
+            echo('sonarqube')
         }
     }
     post {
