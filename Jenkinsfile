@@ -27,7 +27,13 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps{
-               echo('sonarqube')
+                sh '''
+                sonar-scanner \
+                  -Dsonar.projectKey=jenk \
+                  -Dsonar.sources=. \
+                  -Dsonar.host.url=http://localhost:9000 \
+                  -Dsonar.token=sqp_981b7e0ae2870d24d5c105bbdd05ddc7dfd777ad
+                '''
             }
         }
     }
