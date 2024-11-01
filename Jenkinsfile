@@ -29,10 +29,10 @@ pipeline {
             steps{
                 sh '''
                 sonar-scanner \
-                  -Dsonar.projectKey=jenk \
-                  -Dsonar.sources=. \
-                  -Dsonar.host.url=http://localhost:9000 \
-                  -Dsonar.token=sqp_981b7e0ae2870d24d5c105bbdd05ddc7dfd777ad
+                -Dsonar.projectKey=jenkk \
+                -Dsonar.sources=. \
+                -Dsonar.host.url=http://localhost:9000 \
+                -Dsonar.token=sqp_3bfe1c645b5db2ee90bb7b325f630a03de696b0a
                 '''
             }
         }
