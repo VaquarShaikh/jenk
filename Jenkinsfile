@@ -37,11 +37,11 @@ pipeline {
             }
         }
 
-        stage('OWASP ZAP API Key Generation') {
-            steps {
-                sh 'openssl rand -hex 16 > zap_api_key.txt'
-            }
-        }
+        // stage('OWASP ZAP API Key Generation') {
+        //     steps {
+        //         sh 'openssl rand -hex 16 > zap_api_key.txt'
+        //     }
+        // }
 
         stage('Owasp'){
             steps{
