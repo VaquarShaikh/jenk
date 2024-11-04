@@ -37,6 +37,12 @@ pipeline {
             }
         }
 
+        stage('OWASP ZAP API Key Generation') {
+            steps {
+                sh 'openssl rand -hex 16 > zap_api_key.txt'
+            }
+        }
+
         stage('Owasp'){
             steps{
                 sh 'zap-cli --api-key $(cat zap_api_key.txt) ajax-spider http://localhost:3000'
