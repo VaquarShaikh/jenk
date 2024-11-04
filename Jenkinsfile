@@ -36,6 +36,20 @@ pipeline {
                 '''
             }
         }
+
+        stage('Owasp'){
+            steps{
+                sh 'zap-cli --api-key $(cat zap_api_key.txt) ajax-spider http://localhost:3000'
+            }
+        }
+
+        stage('Owasp report'){
+            steps{
+                sh 'zap-cli --api-key $(cat zap_api_key.txt) report -o zap_report.html -f html'
+            }
+        }
+
+
     }
     // post {
     //     always {
