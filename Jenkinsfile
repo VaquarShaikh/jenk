@@ -55,6 +55,17 @@ pipeline {
             }
         }
 
+        stage('push to nexus'){
+            steps{
+                // Define the path to the file and Nexus credentials
+                sh '''
+                curl -u admin:vaq -X POST "http://localhost:8081/service/rest/v1/components?repository=vaq-test" \
+                -F "raw.directory=/" \
+                -F "raw.asset1=@jenk-1.0.0.tgz" \
+                -F "raw.asset1.filename=jenk-1.0.0.tgz"
+                '''
+            }
+        }
 
     }
     // post {

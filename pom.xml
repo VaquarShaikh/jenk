@@ -1,0 +1,7 @@
+<groupId>com.vaq</groupId>
+<artifactId>jenk</artifactId>
+<version>1.0.0</version>
+<packaging>tar.gz</packaging>
+
+<name>jenk</name>
+<description>Jenkins Next.js Application</description>
