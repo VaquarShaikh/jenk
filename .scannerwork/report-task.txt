@@ -1,6 +1,6 @@
-projectKey=jenkk
+projectKey=jenk
 serverUrl=http://localhost:9000
 serverVersion=10.7.0.96327
-dashboardUrl=http://localhost:9000/dashboard?id=jenkk
-ceTaskId=31c9f29f-8bb6-42b7-9071-c58f6dc912d0
-ceTaskUrl=http://localhost:9000/api/ce/task?id=31c9f29f-8bb6-42b7-9071-c58f6dc912d0
+dashboardUrl=http://localhost:9000/dashboard?id=jenk
+ceTaskId=5607bbcc-360f-4c46-9e23-17e781b14e6f
+ceTaskUrl=http://localhost:9000/api/ce/task?id=5607bbcc-360f-4c46-9e23-17e781b14e6f

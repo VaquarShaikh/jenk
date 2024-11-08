@@ -28,11 +28,11 @@ pipeline {
         stage('SonarQube Analysis') {
             steps{
                 sh '''
-                /opt/sonar-scanner/bin/sonar-scanner \
-                -Dsonar.projectKey=jenkk \
+                sonar-scanner \
+                -Dsonar.projectKey=jenk \
                 -Dsonar.sources=. \
                 -Dsonar.host.url=http://localhost:9000 \
-                -Dsonar.token=sqp_3bfe1c645b5db2ee90bb7b325f630a03de696b0a
+                -Dsonar.token=sqp_0969366144a7436b610d846854a714e13272ce68
                 '''
             }
         }
