@@ -28,7 +28,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps{
                 sh '''
-                sonar-scanner \
+                /opt/sonarscanner/bin/sonar-scanner \
                 -Dsonar.projectKey=jenk \
                 -Dsonar.sources=. \
                 -Dsonar.host.url=http://localhost:9000 \
